@@ -182,7 +182,7 @@ function cardCreater(onElement){
     let cardStars = document.createElement('p');
     cardStars.style.margin = "0";
 
-    cardStars.textContent = `Start: ${onElement.dataset.stars}`
+    cardStars.textContent = `Stars: ${onElement.dataset.stars}`
     let cardOwner = document.createElement('p');
     cardOwner.style.margin = "0";
     
