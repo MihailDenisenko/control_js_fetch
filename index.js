@@ -123,12 +123,13 @@ document.addEventListener('mouseout',(event)=> {
 })
 
 // Слушатель для Удаления Элемента
-// document.addEventListener('mouseout',(event)=> {
-//     const element = event.target
-//     if (element.classList =='img'){
-//         onClosed(element)
-//     }
-// })
+document.addEventListener('click',(event)=> {
+    const element = event.target
+    if (element.classList =='img'){
+        // onClosed(element)
+        deleteCard(element)
+    }
+})
 
 
 
@@ -141,7 +142,13 @@ function onClosedi(elementImg) {
 
 
 
+// Функция удаления карточки
+function deleteCard(elementCard) {
+    let card = document.getElementById(elementCard.dataset.id)
+    card.remove()
 
+    // console.log(card)
+}
 
 
 // Функция Увеличения значка 
@@ -170,7 +177,7 @@ function cardCreater(onElement){
     card.style.justifyContent = 'space-between'
 
     card.style.padding = '15px';
-
+    card.setAttribute("id", onElement.dataset.id);
     // cardLeft.style.paddingLeft = "15px";
     // card.style.height = '90px';
     card.style.margin = '0'
@@ -188,6 +195,7 @@ function cardCreater(onElement){
     
     cardOwner.textContent = `Owner: ${onElement.dataset.owner}`
     let img = document.createElement('img');
+    img.dataset.id = onElement.dataset.id;
     img.src = 'closed.png'
     img.style.height = '30px'
     // img.style.backgroundColor = 'red'
